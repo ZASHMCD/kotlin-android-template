@@ -3,8 +3,8 @@ version = LibraryAndroidCoordinates.LIBRARY_VERSION
 plugins {
     id("com.android.library")
     kotlin("android")
-    id("kotlin-android-extensions")
     id("maven-publish")
+    publish
 }
 
 android {
@@ -52,14 +52,4 @@ dependencies {
 
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RUNNER)
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-            }
-        }
-    }
 }
